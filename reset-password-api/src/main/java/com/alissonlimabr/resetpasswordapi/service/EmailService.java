@@ -15,7 +15,7 @@ public class EmailService {
     private JavaMailSender javaMailSender;
 
     // Método responsável por enviar e-mail de redefinição de senha.
-    public void sendPasswordResetEmail(String to, String token) throws MessagingException {
+    public void sendPasswordResetEmail(String recipient, String token) throws MessagingException {
 
         // Cria uma nova mensagem de e-mail.
         MimeMessage message = javaMailSender.createMimeMessage();
@@ -27,12 +27,12 @@ public class EmailService {
         helper.setFrom("alissonlimabr via API <alissonlimabr.github@gmail.com>");
 
         // Define o destinatário do e-mail.
-        helper.setTo(to);
+        helper.setTo(recipient);
 
         // Define o assunto do e-mail.
         helper.setSubject("API de redefinição de senha");
 
-        // Define o corpo do e-mail.
+        // Define o corpo do e-mail. Passa o e-mail do usuario + token na url.
         String text = "<html>"
                 +
                 "<body style='font-family: Arial, sans-serif;'>"
@@ -43,7 +43,8 @@ public class EmailService {
                 +
                 "<p>Você solicitou a redefinição de senha do e-mail cadastrado em nosso sistema. Clique no link abaixo para prosseguir:</p>"
                 +
-                "<p style='background-color: #24a0ed; padding: 10px; color: white; border-radius: 5px; display: inline-block;'><a href='https://front-end/token/"
+                "<p style='background-color: #24a0ed; padding: 10px; color: white; border-radius: 5px; display: inline-block;'><a href='https://front-end/"
+                + recipient + "/"
                 + token + "' style='color: white; text-decoration: none;'>Redefinir senha</a></p>"
                 +
                 "<p>Obrigado pela sua participação e atenção em testar o projeto. Se houver alguma dúvida, sinta-se à vontade para me contatar.</p>"

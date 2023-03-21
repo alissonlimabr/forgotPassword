@@ -42,20 +42,22 @@ public class PasswordResetController {
   // Rota para redefinir a senha com base no token enviado pelo e-mail
   @PostMapping("/reset/{token}")
   public ResponseEntity<Map<String, String>> resetPassword(@PathVariable String token,
-      @RequestBody Map<String, String> newPassword) {
+      @RequestBody Map<String, String> emailAndNewPassword) {
     try {
       // Chama o método changePassword do PasswordResetService para alterar a senha do
-      // usuário com base no token e na nova senha fornecidos
-      passwordResetService.changePassword(token, newPassword.get("password"));
+      // usuário com base no token, email e nova senha (o método changePassword
+      // verifica se o e-mail repassado corresponde ao e-mail vinculado ao token)
+      passwordResetService.changePassword(token, emailAndNewPassword.get("password"), emailAndNewPassword.get("email"));
       // Cria um Map com a mensagem de sucesso e retorna uma resposta HTTP 200 OK com
       // o Map no corpo da resposta
       Map<String, String> response = new HashMap<>();
       response.put("message", "Senha alterada com sucesso.");
       return new ResponseEntity<>(response, HttpStatus.OK);
     } catch (MessagingException e) {
-      // Se ocorrer uma exceção InvalidAttributeValueException, significa que o token
+      // Se ocorrer uma exceção MessagingException, significa que o token
       // não é válido ou expirou, ou que o usuário associado ao token não foi
-      // encontrado
+      // encontrado, ou que o e-mail é invalido.
+
       // Cria um Map com a mensagem de erro e retorna uma resposta HTTP 400 Bad
       // Request com o Map no corpo da resposta
       Map<String, String> response = new HashMap<>();

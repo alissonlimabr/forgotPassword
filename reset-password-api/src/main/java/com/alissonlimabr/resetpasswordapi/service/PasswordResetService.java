@@ -50,15 +50,18 @@ public class PasswordResetService {
 
   // Método para alterar a senha de um usuário a partir de um token de reset de
   // senha e uma nova senha
-  public void changePassword(String token, String newPassword) throws MessagingException {
+  public void changePassword(String token, String newPassword, String emailRequest) throws MessagingException {
     PasswordResetToken resetToken = tokenRepository.findByToken(token);
     if (resetToken == null) { // Verificar se o token é válido
       throw new MessagingException("Token inválido ou expirado!");
     }
 
     User user = resetToken.getUser();
-    if (user == null) { // Verificar se o usuário existe
-      throw new MessagingException("Usuário não encontrado!");
+    // Verifica se o usuário existe e se o e-mail repassado corresponde ao e-mail
+    // vinculado ao token
+    if (user == null || !user.getEmail().equals(emailRequest)) {
+      throw new MessagingException(
+          "Usuário não encontrado ou e-mail inválido!");
     }
 
     user.setPassword(newPassword); // Alterar a senha do usuário
