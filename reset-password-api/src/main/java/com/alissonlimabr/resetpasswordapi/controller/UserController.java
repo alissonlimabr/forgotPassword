@@ -35,7 +35,7 @@ public class UserController {
     boolean emailExists = userService.checkEmail(email);
     // Se o email já existir, retorna uma resposta HTTP com o status "BAD_REQUEST"
     if (emailExists == true)
-      return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+      return new ResponseEntity<>(HttpStatus.CONFLICT);
     // Caso contrário, retorna uma resposta HTTP com o status "OK"
     return new ResponseEntity<>(HttpStatus.OK);
   }
