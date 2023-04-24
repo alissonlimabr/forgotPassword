@@ -1,0 +1,42 @@
+@import '../../../../node_modules/@angular/material/core/theming/all-theme';
+
+// Definição da paleta de cores
+
+$background-gradient: linear-gradient( 64.5deg,  rgba(245,116,185,1) 14.7%, rgba(89,97,223,1) 88.7% );
+
+// Styling the body
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-color: $background-gradient;
+}
+.container {
+  background: $background-gradient;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-submit{
+  display: grid;
+}
+
+mat-card {
+  width: 400px;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+mat-tab-group {
+  width: 100%;
+  height: 100%;
+}
+
+mat-form-field{
+  padding-top: 20px;
+  width: 100%;
+}

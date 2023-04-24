@@ -1,0 +1,93 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-tab-group class="tab-group" [selectedIndex]="selectedIndex">
+      <mat-tab label="Cadastre-se">
+        <form (ngSubmit)="signInForm()" [formGroup]="formSignUp">
+          <mat-form-field appearance="outline">
+            <mat-label>E-mail</mat-label>
+            <input
+              matInput
+              placeholder="exemplo@exemplo.com"
+              appCheckEmail
+              formControlName="email"
+            />
+            <mat-icon matSuffix color="primary">email</mat-icon>
+            <mat-error *ngIf="formSignUp.get('email')?.hasError('required')">
+              E-mail é obrigatório
+            </mat-error>
+            <mat-error
+              *ngIf="formSignUp.get('email')?.hasError('pattern' || 'email')"
+            >
+              E-mail inválido
+            </mat-error>
+            <mat-error
+              *ngIf="formSignUp.get('email')?.hasError('appCheckEmail')"
+            >
+              E-mail já cadastrado.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Cadastre uma senha fictícia</mat-label>
+            <input
+              type="password"
+              matInput
+              formControlName="password"
+              placeholder="Insira uma senha fictícia"
+              maxlength="35"
+            />
+            <mat-icon matSuffix color="primary">keygen</mat-icon>
+            <mat-error *ngIf="formSignUp.get('password')?.hasError('required')">
+              Senha é obrigatória
+            </mat-error>
+            <mat-error
+              *ngIf="formSignUp.get('password')?.hasError('minlength')"
+            >
+              Mínimo de 5 caracteres
+            </mat-error>
+          </mat-form-field>
+          <div class="button-submit">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="formSignUp.errors"
+            >
+              Cadastrar
+            </button>
+          </div>
+        </form>
+      </mat-tab>
+      <mat-tab label="Redefinir senha">
+        <form (ngSubmit)="sendEmailForm()" [formGroup]="formSendEmail">
+          <mat-form-field appearance="outline">
+            <mat-label>Insira seu e-mail cadastrado</mat-label>
+            <input
+              matInput
+              placeholder="exemplo@exemplo.com"
+              formControlName="email"
+            />
+            <mat-icon matSuffix color="primary">email</mat-icon>
+            <mat-error *ngIf="formSignUp.get('email')?.hasError('required')">
+              E-mail é obrigatório
+            </mat-error>
+            <mat-error
+              *ngIf="formSignUp.get('email')?.hasError('pattern' || 'email')"
+            >
+              E-mail inválido
+            </mat-error>
+          </mat-form-field>
+          <div class="button-submit">
+            <button
+              mat-raised-button
+              color="primary"
+              type="submit"
+              [disabled]="formSendEmail.errors"
+            >
+              Redefinir
+            </button>
+          </div>
+        </form>
+      </mat-tab>
+    </mat-tab-group>
+  </mat-card>
+</div>
