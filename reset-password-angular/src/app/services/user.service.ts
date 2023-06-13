@@ -19,12 +19,15 @@ export class UserService {
   }
 
   // Conexão com endpoint para reset/update de senha do usuário. Passa o token e a nova senha para verificações e update pelo back-end.
-  update(token: string, newPassword: { password: string }): Observable<void> {
+  update(
+    token: string,
+    newPasswordWithEmail: { password: string; email: string }
+  ): Observable<void> {
     // Define o cabeçalho do tipo json.
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     // conexão com a url da api
     const url = `${this.apiUrl}/password-reset/reset/${token}`;
-    return this.http.post<void>(url, newPassword, { headers });
+    return this.http.post<void>(url, newPasswordWithEmail, { headers });
   }
 
   sendEmail(email: User): Observable<any> {
