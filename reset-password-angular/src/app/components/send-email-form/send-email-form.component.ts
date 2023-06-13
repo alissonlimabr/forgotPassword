@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -12,7 +13,11 @@ export class SendEmailFormComponent {
   formSendEmail: FormGroup;
   selectedIndex: number = 0;
 
-  constructor(private userService: UserService, private fb: FormBuilder) {
+  constructor(
+    private userService: UserService,
+    private fb: FormBuilder,
+    private toastr: ToastrService
+  ) {
     this.formSignUp = this.fb.group({
       email: [
         '',
@@ -60,6 +65,10 @@ export class SendEmailFormComponent {
       complete: () => {
         this.formSendEmail.disable();
         this.formSendEmail.setErrors({ inserted: true });
+        this.toastr.success(
+          'Enviamos um link de redefinição para o seu e-mail!',
+          'Sucesso'
+        );
       },
     });
   }

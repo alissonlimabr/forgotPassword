@@ -1,6 +1,8 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -42,6 +44,7 @@ export class ResetPasswordFormComponent implements OnInit {
     private fb: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
+    private toastr: ToastrService,
     private userService: UserService
   ) {
     this.form = this.fb.group(
@@ -71,9 +74,14 @@ export class ResetPasswordFormComponent implements OnInit {
 
       this.userService.update(this.token, userData).subscribe({
         complete: () => {
-          alert(`Senha alterada com sucesso!`);
+          this.toastr.success('Sua senha foi alterada!', 'Sucesso');
           this.form.reset;
           this.router.navigate(['']);
+        },
+        error: (error: HttpErrorResponse) => {
+          if (error.status === 400) {
+            this.toastr.error('Token inválido ou expirado!', 'Erro');
+          }
         },
       });
     }

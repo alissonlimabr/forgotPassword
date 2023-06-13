@@ -10,6 +10,7 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
 import { SendEmailFormComponent } from './components/send-email-form/send-email-form.component';
 import { CheckEmailDirective } from './directives/check-email.directive';
 import { MaterialModule } from './material/material.module';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MaterialModule } from './material/material.module';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    ToastrModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
