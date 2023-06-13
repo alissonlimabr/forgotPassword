@@ -43,7 +43,7 @@ public class EmailService {
                 +
                 "<p>Você solicitou a redefinição de senha do e-mail cadastrado em nosso sistema. Clique no link abaixo para prosseguir:</p>"
                 +
-                "<p style='background-color: #24a0ed; padding: 10px; color: white; border-radius: 5px; display: inline-block;'><a href='https://front-end/"
+                "<p style='background-color: #24a0ed; padding: 10px; color: white; border-radius: 5px; display: inline-block;'><a href='https://forgot-password-lyart.vercel.app/reset/"
                 + recipient + "/"
                 + token + "' style='color: white; text-decoration: none;'>Redefinir senha</a></p>"
                 +
