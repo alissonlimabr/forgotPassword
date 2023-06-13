@@ -5,7 +5,10 @@ import { ResetPasswordFormComponent } from './components/reset-password-form/res
 
 const routes: Routes = [
   { path: '', component: SendEmailFormComponent },
-  { path: 'reset', component: ResetPasswordFormComponent },
+  {
+    path: 'reset/:email/:token',
+    component: ResetPasswordFormComponent,
+  },
 ];
 
 @NgModule({

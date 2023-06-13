@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
 
 function passwordMatchValidator(
   control: FormGroup
@@ -30,22 +33,19 @@ function passwordMatchValidator(
   templateUrl: './reset-password-form.component.html',
   styleUrls: ['./reset-password-form.component.scss'],
 })
-export class ResetPasswordFormComponent {
+export class ResetPasswordFormComponent implements OnInit {
   form: FormGroup;
+  email: string | null = null;
+  token: string | null = null;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private route: ActivatedRoute,
+    private router: Router,
+    private userService: UserService
+  ) {
     this.form = this.fb.group(
       {
-        email: [
-          '',
-          [
-            Validators.required,
-            Validators.email,
-            Validators.pattern(
-              /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-            ),
-          ],
-        ],
         password: ['', Validators.required],
         confirmPassword: ['', Validators.required],
       },
@@ -53,8 +53,29 @@ export class ResetPasswordFormComponent {
     );
   }
 
+  ngOnInit(): void {
+    this.route.paramMap.subscribe((params) => {
+      if (params != null) {
+        this.email = params.get('email');
+        this.token = params.get('token');
+      }
+    });
+  }
+
   resetPasswordForm() {
-    if (this.form.valid) {
+    if (this.form.valid && this.token != null && this.email != null) {
+      const userData: User = {
+        email: this.email,
+        password: this.form.value.password,
+      };
+
+      this.userService.update(this.token, userData).subscribe({
+        complete: () => {
+          alert(`Senha alterada com sucesso!`);
+          this.form.reset;
+          this.router.navigate(['']);
+        },
+      });
     }
   }
 }
