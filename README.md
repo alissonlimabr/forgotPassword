@@ -12,7 +12,7 @@
 
 <p> A fim de que outras pessoas possam testar o projeto, decidi implementar algumas validações e funcionalidades, dentre elas, a possibilidade de cadastrar um novo e-mail e um tempo de expiração para cada token solicitado, expirando após certo tempo ou utilização. </p>
 
-<p> Sinta-se à vontade para conferir o código. Caso queira baixá-lo, certifique-se de configurar corretamente suas variáveis de ambiente para a sua correta compilação e execução. </p>
+<p> Sinta-se à vontade para conferir o código. Caso queira baixá-lo, certifique-se de configurar corretamente suas variáveis de ambiente para a correta compilação e execução do código. </p>
 
 ### 🎁 Link do projeto
 
