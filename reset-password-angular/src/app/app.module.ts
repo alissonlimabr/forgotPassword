@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
@@ -11,6 +11,8 @@ import { SendEmailFormComponent } from './components/send-email-form/send-email-
 import { CheckEmailDirective } from './directives/check-email.directive';
 import { MaterialModule } from './material/material.module';
 import { ToastrModule } from 'ngx-toastr';
+import { LoadingInterceptor } from './interceptors/loading-interceptor.interceptor';
+import { LoadingComponent } from './components/loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import { ToastrModule } from 'ngx-toastr';
     ResetPasswordFormComponent,
     SendEmailFormComponent,
     CheckEmailDirective,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,13 @@ import { ToastrModule } from 'ngx-toastr';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: LoadingInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
