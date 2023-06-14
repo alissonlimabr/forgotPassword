@@ -66,6 +66,13 @@ export class ResetPasswordFormComponent implements OnInit {
   }
 
   resetPasswordForm() {
+    if (
+      this.form.invalid ||
+      (this.form.value.password === '' &&
+        this.form.value.confirmPassword === '')
+    )
+      return;
+
     if (this.form.valid && this.token != null && this.email != null) {
       const userData: User = {
         email: this.email,

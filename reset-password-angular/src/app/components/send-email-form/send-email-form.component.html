@@ -1,5 +1,6 @@
 <div class="container">
   <mat-card class="card">
+    <app-loading></app-loading>
     <mat-tab-group class="tab-group" [selectedIndex]="selectedIndex">
       <mat-tab label="Cadastre-se">
         <form (ngSubmit)="signInForm()" [formGroup]="formSignUp">
