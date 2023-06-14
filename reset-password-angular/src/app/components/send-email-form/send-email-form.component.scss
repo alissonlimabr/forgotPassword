@@ -41,3 +41,25 @@ mat-form-field{
   padding-top: 20px;
   width: 100%;
 }
+
+
+@media screen and (max-width: 320px) {
+  mat-card {
+    width: 280px !important;
+    padding: 30px;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+  mat-card {
+    width: 320px;
+    padding: 30px;
+  }
+
+  mat-label {
+    font-size: 12px;
+  }
+
+}
