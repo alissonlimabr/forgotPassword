@@ -1,5 +1,5 @@
 # Usa a imagem oficial do OpenJDK para executar a aplicação Spring Boot
-FROM openjdk:11-jdk-slim
+FROM openjdk:17-jdk-slim
 
 # Variáveis de ambiente para a aplicação Spring Boot
 ENV SPRING_OUTPUT_ANSI_ENABLED=ALWAYS \
