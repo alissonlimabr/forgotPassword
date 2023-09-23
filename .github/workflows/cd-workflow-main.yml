@@ -63,7 +63,7 @@ jobs:
           docker rm reset-password-api || true
 
           # Executar o contêiner Docker
-          docker run -d -p ${{ secrets.SERVER_PORT}}:8080 \
+          docker run -d -p ${{ secrets.SERVER_PORT}}:8081 \
           -e SSL_PASSWORD=${{ secrets.SSL_PASSWORD }} \
           -e DB_URL=${{ secrets.DB_URL }} \
           -e DB_USERNAME=${{ secrets.DB_USERNAME }} \
