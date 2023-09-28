@@ -8,15 +8,17 @@
 #
 ### 👉  Descrição do projeto
 
-<p> Esse módulo de redefinição de senha foi desenvolvido em Angular/TS e SpringBoot (JAVA 17) com Banco de Dados SQL, além de contar com uma estilização feita em Angular Material. A ideia é que o usuário cadastrado possa solicitar a redefinição da sua senha perdida, receber um e-mail com o link de redefinição e prosseguir com o cadastramento de uma nova senha. </p>
-
+<p> Esse módulo de redefinição de senha foi desenvolvido em Angular/TS e SpringBoot (JDK 17), conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito em Docker dentro de um container isolado em uma instância EC2 da AWS.
+ </p>
+<p>A ideia é que o usuário cadastrado possa solicitar a redefinição da sua senha perdida, receber um e-mail com o link de redefinição e prosseguir com o cadastramento de uma nova senha.
+</p>
 <p> A fim de que outras pessoas possam testar o projeto, decidi implementar algumas validações e funcionalidades, dentre elas, a possibilidade de cadastrar um novo e-mail e um tempo de expiração para cada token solicitado, expirando após certo tempo ou utilização. </p>
 
 <p> Sinta-se à vontade para conferir o código. Caso queira baixá-lo, certifique-se de configurar corretamente suas variáveis de ambiente para a correta compilação e execução do código. </p>
 
 ### 🎁 Link do projeto
 
-- https://forgot-password-lyart.vercel.app/
+- https://resetpassword.alissonlimadev.com/
   
 ### ✅ Features
 
@@ -39,3 +41,5 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - [Angular Material](https://material.angular.io/)
 - [Java Mail](https://www.oracle.com/java/technologies/javamail-api.html)
 - [SCSS](https://sass-lang.com/)
+- [AWS](https://aws.amazon.com/)
+- [Docker](https://hub.docker.com/)
