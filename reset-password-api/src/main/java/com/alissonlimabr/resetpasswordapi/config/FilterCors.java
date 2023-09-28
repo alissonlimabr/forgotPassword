@@ -16,8 +16,8 @@ public class FilterCors {
 
         CorsConfiguration configCors = new CorsConfiguration();
         configCors.setAllowCredentials(true);
-        configCors.setAllowedOrigins(Arrays.asList("https://forgot-password-lyart.vercel.app", "http://localhost:4200",
-                "https://localhost:4200"));
+        configCors.setAllowedOrigins(Arrays.asList("https://forgot-password-lyart.vercel.app",
+                "https://resetpassword.alissonlimadev.com"));
         configCors.setAllowedMethods(Arrays.asList("*"));
         configCors.setAllowedHeaders(Arrays.asList("*"));
 
