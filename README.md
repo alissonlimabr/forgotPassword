@@ -8,7 +8,7 @@
 #
 ### 👉  Descrição do projeto
 
-<p> Esse módulo de redefinição de senha foi desenvolvido em Angular/TS e SpringBoot (JDK 17), conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito em Docker dentro de um container isolado em uma instância EC2 da AWS.
+<p> Esse módulo de redefinição de senha foi desenvolvido em Angular/TS e Spring Boot (JDK 17), conta com uma estilização feita em Angular Material. Além disso, o processo de Deploy foi feito em Docker dentro de um container isolado em uma instância EC2 da AWS.
  </p>
 <p>A ideia é que o usuário cadastrado possa solicitar a redefinição da sua senha perdida, receber um e-mail com o link de redefinição e prosseguir com o cadastramento de uma nova senha.
 </p>
