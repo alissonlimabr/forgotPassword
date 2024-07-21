@@ -52,8 +52,8 @@ As seguintes ferramentas foram usadas na construção do projeto:
  <sub><b>Alisson Lima</b></sub></a> <a href="https://github.com/alissonlimabr" title="GitHub">🚀</a>
  <br />
 
-[![Linkedin Badge](https://img.shields.io/badge/-Alisson-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alissonlimadev/)](https://www.linkedin.com/in/alissonlimadev/) 
-[![Gmail Badge](https://img.shields.io/badge/-amlxd5@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:amlxd5@gmail.com)](mailto:amlxd5@gmail.com)
+[![Linkedin Badge](https://img.shields.io/badge/-alissonlimadev-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/alissonlimadev/)](https://www.linkedin.com/in/alissonlimadev/) 
+[![Gmail Badge](https://img.shields.io/badge/-alissonlimabr.github@gmail.com-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:alissonlimabr.github@gmail.com)](mailto:alissonlimabr.github@gmail.com)
 
 ## 📝 Licença
 
